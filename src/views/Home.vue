@@ -38,6 +38,8 @@ export default {
   },
   methods: {
     async fetchData(){
+      this.$store.dispatch("fetchJobs")
+      console.log(this.$store.getters.jobs);
       const res = await fetch("jobs.json");
       const val = await res.json();
       this.jobs = val;
